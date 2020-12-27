@@ -33,9 +33,14 @@ body {
   margin-bottom: 20px;
 }
 .article {
-  width: 50%;
-  border: 1px white solid;
+  width: 48%;
+  /* border: 1px white solid; */
+  margin-right: 2%;
+  margin-bottom: 2%;
   padding: 10px;
+  position: relative;
+  background-color: #525252;
+  border-radius: 5px;
 }
 .pagination {
   display: flex;
@@ -54,4 +59,44 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: 7px;
+}
+.articleTitle {
+  font-size: 2.5rem;
+  padding-bottom: 5px;
+}
+.articleDate {
+  font-size: 13px;
+  padding-bottom: 20px;
+}
+.articleDesc {
+  font-size: 1.4rem;
+}
+.readMore {
+  border: none;
+  background-color: #eb4034;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+}
+.preview {
+  background-color: #525252;
+  width: 80vw;
+  margin: 20px auto;
+  border-radius: 5px;
+  height: 64vh;
+  padding: 10px;
+}
+.previewTitle {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.previewDate {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.previewDesc {
+  font-size: 1.5rem;
 }
