@@ -1,6 +1,7 @@
 import React from "react";
 import Article from "./Article";
 import Pagination from "./Pagination";
+import Preview from "./Preview";
 
 class Articles extends React.Component {
   state = {
@@ -8,6 +9,8 @@ class Articles extends React.Component {
     isLoaded: false,
     error: null,
     activeOption: 1,
+    preview: false,
+    activeArticle: null,
   };
   componentDidMount() {
     fetch("https://shz-strapi.herokuapp.com/articles")
@@ -38,10 +41,12 @@ class Articles extends React.Component {
       data.map((e) => {
         articles.push(
           <Article
-            date={e.date}
+            date={new Date(e.date)}
             title={e.title}
             description={e.description}
+            id={e._id}
             key={e._id}
+            previewMode={this.handlePreviewMode}
           />
         );
       });
@@ -75,13 +80,33 @@ class Articles extends React.Component {
       activeOption: e,
     });
   };
+  handlePreviewMode = (res, e) => {
+    e.preventDefault();
+    this.setState({
+      preview: !this.state.preview,
+      activeArticle: res,
+    });
+  };
   render() {
-    return (
-      <React.Fragment>
-        <div className="articles">{this.drawArticles()[0]}</div>
-        <div className="pagination">{this.drawArticles()[1]}</div>
-      </React.Fragment>
-    );
+    const { preview, activeArticle } = this.state;
+    if (preview) {
+      return (
+        <Preview
+          date={activeArticle.date}
+          title={activeArticle.title}
+          description={activeArticle.description}
+          key={activeArticle._id}
+          previewMode={this.handlePreviewMode}
+        />
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <div className="articles">{this.drawArticles()[0]}</div>
+          <div className="pagination">{this.drawArticles()[1]}</div>
+        </React.Fragment>
+      );
+    }
   }
 }
 export default Articles;

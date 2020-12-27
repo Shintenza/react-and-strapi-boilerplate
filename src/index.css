@@ -24,11 +24,13 @@ body {
 }
 .articles {
   width: 80vw;
+  height: 64vh;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 .article {
   width: 50%;
@@ -46,9 +48,10 @@ body {
 .option {
   width: 30px;
   height: 30px;
-  border: 1px solid white;
+  border: 2px solid white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 7px;
 }

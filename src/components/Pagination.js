@@ -1,9 +1,9 @@
 const Pagination = (props) => {
   const changeBgColor = () => {
     if (props.activeOption === props.content) {
-      return { backgroundColor: "red" };
+      return { backgroundColor: "#f73939" };
     } else {
-      return { backgroundColor: "white" };
+      return { backgroundColor: "#242424" };
     }
   };
   return (
